@@ -5,7 +5,7 @@
 /* https://ninawas.me */
 
 /* ウェブフォントの読み込み */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Kosugi+Maru&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP|Overlock+SC&display=swap');
 
 /* 全体に適用する */
 * {
@@ -13,328 +13,264 @@
     padding: 0;
     box-sizing: border-box;
     font-weight: normal;
-    font-family: 'Kosugi Maru', sans-serif;
+    font-family: 'Noto Serif JP', serif;
 }
 
-/* 共通 */
-:root {
-    --main-color: #ecbcf4;
-    --sub-color: #fbe4fc;
-    --font: 'Fredoka One', 'Kosugi Maru', sans-serif;
-}
-
-/* 基本設定 */
+/* 共通設定 */
 body {
-    background: repeating-linear-gradient(90deg, var(--sub-color) 0, var(--sub-color) 20px, #fff 20px, #fff 30px);
-    text-align: center;
     line-height: 1.7;
     letter-spacing: 0.1em;
+    text-align: center;
     font-size: 13px;
-    color: #888;
+    color: #000;
+}
+
+/* 背景を固定する */
+#bg {
+    position: fixed;
+    display: block;
+    z-index: -100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('画像URL') center/cover;
 }
 
 /* リンク */
 a {
-    border-bottom: thin dashed #888;
-    text-decoration: none;
-    color: #888;
+    transition: color .5s;
+    color: #000;
 }
 
-/* カーテン */
-#curtain {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    background: url('カーテンURL') center top/contain;
-    width: 100%;
-    height: 100px;
-}
-
-/* ヘッダー */
-header {
-    position: relative;
-    margin-top: 100px;
-}
-
-/* 大見出し */
-header h1 {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-shadow: 3px 3px 1px #dadada;
-    font-weight: bold;
-    font-family: var(--font);
-    font-size: 3em;
+/* ホバー */
+a:hover {
     color: #fff;
 }
 
-/* メインコンテンツ */
-main {
+/* コンテナ基本設定 */
+header,
+section,
+article {
     margin: 3em auto;
-    padding: 1.5em 3em;
     width: 80%;
-    max-width: 600px;
-    box-shadow: 0 0 8px #dadada;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.9);
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
 }
 
 /* 見出し */
-section h2 {
-    position: relative;
+header h1 {
+    padding: 2em 0;
+    text-shadow: 1px 1px 0 #fff;
+    font-size: 11px;
+}
+
+/* フォントの指定 */
+header h1,
+section h2,
+li,
+li a {
+    font-family: 'Overlock SC', 'Noto Serif JP', serif;
+}
+
+/* 見出し一行目 */
+header h1 span:nth-of-type(1) {
+    letter-spacing: 0.33em;
+}
+
+/* 見出し二行目 */
+header h1 span:nth-of-type(2) {
+    letter-spacing: 0.25em;
+}
+
+/* 見出し三行目 */
+header h1 span:nth-of-type(3) {
+    letter-spacing: 0.4em;
+}
+
+/* 見出し四行目 */
+header h1 span:nth-of-type(4) {
     display: inline-block;
-    margin: 1em auto 0.5em;
-    width: 230px;
-    height: 1.8em;
-    background-color: var(--sub-color);
-    font-family: var(--font);
-    font-size: 1.2em;
-    color: var(--main-color);
+    margin: 0.5em;
+    text-indent: 1em;
+    letter-spacing: 1em;
+    font-size: 21px;
 }
 
-section h2::before,
-section h2::after,
-article h1::before,
-article h1::after {
-    position: absolute;
-    display: block;
-    content: '';
-    top: 0;
-}
-
-section h2::before,
-article h1::before {
-    left: 0;
-    border-width: 0.9em 0 0.9em 10px;
-    border-color: transparent transparent transparent #fff;
-    border-style: solid;
-}
-
-section h2::after,
-article h1::after {
-    right: 0;
-    border-width: 0.9em 10px 0.9em 0;
-    border-color: transparent #fff transparent transparent;
-    border-style: solid;
-}
-
-section h3 {
-    font-family: var(--font);
-}
-
-/* 段落 */
-section p,
-article p {
-    margin: 0 auto 1.5em;
-    text-align: justify;
-    word-break: break-all;
-}
-
-/* セクション内共通 */
-section mark {
-    padding: 0.1em 0.3em;
-    background-color: #ffffcc;
-    border-radius: 10px;
-    color: #888;
-}
-
-section strong {
-    font-weight: bold;
-    color: red;
-}
-
-/* リスト */
-section ul {
-    margin-bottom: 1em;
+/* メニュー */
+header ul,
+article ul {
     list-style-type: none;
+    padding: 0.5em 0;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+header ul li,
+article ul li {
+    display: inline-block;
+    margin: 0 1em;
+}
+
+/* ここまで */
+
+/* セクション */
+section {
     text-align: justify;
     word-break: break-all;
 }
 
-section ul.yoko li {
-    display: inline;
+/* セクション見出し */
+section h2 {
+    background-color: rgba(255, 255, 255, 0.7);
+    text-align: center;
 }
 
-section ul span {
-    margin-right: 0.5em;
-    padding: 0.2em 0.5em;
-    background-color: var(--sub-color);
-    border-radius: 50px;
+/* リスト系2 */
+section ol {
+    list-style-type: decimal-leading-zero;
+    margin: 0.5em auto;
+    padding: 1em 1.5em;
 }
+
+section ol li {
+    list-style-position: inside;
+}
+
+section ul {
+    list-style-type: none;
+    margin: 0.5em auto;
+    padding: 1em 1.5em;
+}
+
+/* ここまで */
 
 /* アーティクル */
 article {
-    margin: 0 auto;
-    padding: 3em;
-    width: 90%;
-    max-width: 600px;
-    background-color: #fff;
+    text-align: justify;
+    word-break: break-all;
 }
 
-article h1 {
-    position: relative;
-    margin-bottom: 1em;
-    background-color: var(--sub-color);
-    color: var(--main-color);
+article p,
+.line {
+    margin: 1em auto 1.5em;
 }
 
 /* フッター */
 footer {
-    margin: 1em auto 1.5em;
+    margin: 1.5em auto;
 }
 
-/* メニュー */
-.menu {
+/* 中央揃え */
+.center {
     text-align: center;
-    margin: 1em auto 1.5em;
-}
-
-.menu li {
-    display: inline-block;
-    margin: 0 0.5em;
-}
-
-.menu li a {
-    font-weight: bold;
-}
-
-/* ハート */
-div.heart {
-    position: relative;
-    display: inline-block;
-    margin: 0 0.5em;
-    width: 20px;
-    height: 0.8em;
-}
-
-div.heart::before,
-div.heart::after {
-    position: absolute;
-    display: block;
-    content: '';
-    top: 0;
-    width: 6px;
-    height: 11px;
-    background-color: var(--main-color);
-    border-radius: 30px 30px 0 0;
-}
-
-div.heart::before {
-    transform: rotate(-45deg);
-    left: 5px;
-}
-
-div.heart::after {
-    transform: rotate(45deg);
-    right: 5px;
 }
 
 /* ライン */
-div.line {
-    margin: 0.5em auto;
-    width: 150px;
-    height: 5px;
-    border-radius: 10px;
-    background: url('image.jpg');
+.line {
+    height: 1px;
+    background-color: #000;
 }
 
 /* フォーム系 */
 textarea,
 input[type] {
     -webkit-appearance: none;
-    padding: 0.3em 0.5em;
-    background: var(--main-color);
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-}
-
-textarea {
-    width: 200px;
-    height: 70px;
+    padding: 0.2em 0.5em;
+    background-color: #fff;
+    border: thin solid #000;
+    border-radius: 0;
 }
 
 input[type=text] {
-    width: 80px;
+    width: 100px;
 }
 
 input[type=submit] {
     width: auto;
 }
 
-/* 横幅768px以上で読み込む */
-@media screen and (min-width:768px) {
-
-    /* フォントサイズ */
-    body {
-        font-size: 14px;
-    }
+textarea {
+    width: 280px;
+    height: 120px;
 }
 
-/* 横幅1024px以上で読み込む */
-@media screen and (min-width:1024px) {
-
-    /* フォントサイズ */
-    body {
-        font-size: 15px;
-    }
+textarea::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
 }
 
+textarea::-webkit-scrollbar-track {
+    border-radius: 50px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: #000;
+    border-radius: 50px;
+}
+/* フォームここまで */
 </style>
 
 
-<div id="curtain"></div>
+
+
+<!-- 表紙ここから -->
+<div id="bg"></div>
 <header>
-    <img src="アイコンURL" alt="icon">
-    <h1>XOXO</h1>
+    <h1><span>ウィンウィンなんて言葉は胡散臭いし</span><br><span>そんなことないよってそんなことあるし</span><br><span>私繊細なんですなんて恥ずかしくて</span><br><span>「言えない」</span></h1>
+    <ul>
+        <li><a href="#">Name change</a></li>
+        <li><a href="#">About this story</a></li>
+    </ul>
 </header>
-＜名前変換用タグ＞
-<main>
-    <section>
-        <h2>ABOUT THIS STORY</h2>
-        <p>テキスト</p>
-    </section>
-    <section>
-        <h2>CAPTER.1</h2>
-        <h3>
-            <div class="heart"></div>LIST<div class="heart"></div>
-        </h3>
-        <ul>
-            <li><span>1</span><a href="#">タイトル</a></li>
-            <li><span>2</span><a href="#">タイトル</a></li>
-            <li><span>3</span><a href="#">タイトル</a></li>
-            <li><span>4</span><a href="#">タイトル</a></li>
-            <li><span>5</span><a href="#">タイトル</a></li>
-        </ul>
-        <ul class="yoko">
-            <li><span>class="yoko"</span></li>
-            <li><a href="#">掛札黎人</a></li>
-            <li><a href="#">タイトル</a></li>
-            <li><a href="#">タイトル</a></li>
-            <li><a href="#">タイトル</a></li>
-            <li><a href="#">タイトル</a></li>
-        </ul>
-        <div class="line"></div>
-        <mark>mark</mark><br>
-        <strong>strong</strong><br>
-        div class="line"で線<br>
-        <div class="line"></div>
-    </section>
-</main>
-<footer>Template by <a href="https://ninawas.me" target="_blank">NINA</a></footer>
 
+<section>
+    <h2>Chapter.1</h2>
+    <ol start="0">
+        <li>番号付きリストにstart="n"を指定するとその番号から始まります。このリストは0を指定。</li>
+        <li><a href="code.html">本文ページとソースコードはここから</a></li>
+        <li><a href="#">タイトル</a></li>
+        <li><a href="#">タイトル</a></li>
+        <li><a href="#">タイトル</a></li>
+    </ol>
+</section>
 
+<section>
+    <h2>Chapter.2</h2>
+    <ol start="5">
+        <li>このリストは5を指定。</li>
+        <li><a href="#">タイトル</a></li>
+        <li><a href="#">タイトル</a></li>
+        <li><a href="#">タイトル</a></li>
+        <li><a href="#">タイトル</a></li>
+    </ol>
+</section>
 
+<section>
+    <h2>After Story</h2>
+    <ul class="center">
+        <li>番号無しリストもあります。</li>
+        <li>class="center"で中央揃え。</li>
+        <li><a href="#">タイトル</a></li>
+        <li><a href="#">タイトル</a></li>
+    </ul>
+</section>
+
+<footer>Template by <a href="https://ninawas.me" target="_blank">Nina</a></footer>
+<!-- ここまで -->
+
+<!-- 本文ページここから -->
 <article>
-    <h1>タイトル</h1>
-    <p>テキスト</p>
-    <div class="menu">
-        <ul>
-            <li><a href="#">PREV</a></li>
-            <li><a href="#">INDEX</a></li>
-            <li><a href="#">NEXT</a></li>
-        </ul>
-    </div>
+    <h1 class="center">タイトル</h1>
+    <div class="line"></div>
+    <p>本文</p>
+    <ul class="center">
+        <li><a href="#">Prev</a></li>
+        <li><a href="#">Index</a></li>
+        <li><a href="#">Next</a></li>
+    </ul>
 </article>
+<!-- ここまで -->
+
+
+
