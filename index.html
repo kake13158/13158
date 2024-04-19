@@ -1,17 +1,340 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>キラキラ星</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="stars">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <!-- 必要な数の星を追加 -->
+<style>
+@charset "UTF-8";
+
+/* Template & Designed by Towako. */
+/* https://ninawas.me */
+
+/* ウェブフォントの読み込み */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Kosugi+Maru&display=swap');
+
+/* 全体に適用する */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+    font-family: 'Kosugi Maru', sans-serif;
+}
+
+/* 共通 */
+:root {
+    --main-color: #ecbcf4;
+    --sub-color: #fbe4fc;
+    --font: 'Fredoka One', 'Kosugi Maru', sans-serif;
+}
+
+/* 基本設定 */
+body {
+    background: repeating-linear-gradient(90deg, var(--sub-color) 0, var(--sub-color) 20px, #fff 20px, #fff 30px);
+    text-align: center;
+    line-height: 1.7;
+    letter-spacing: 0.1em;
+    font-size: 13px;
+    color: #888;
+}
+
+/* リンク */
+a {
+    border-bottom: thin dashed #888;
+    text-decoration: none;
+    color: #888;
+}
+
+/* カーテン */
+#curtain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: url('カーテンURL') center top/contain;
+    width: 100%;
+    height: 100px;
+}
+
+/* ヘッダー */
+header {
+    position: relative;
+    margin-top: 100px;
+}
+
+/* 大見出し */
+header h1 {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 3px 3px 1px #dadada;
+    font-weight: bold;
+    font-family: var(--font);
+    font-size: 3em;
+    color: #fff;
+}
+
+/* メインコンテンツ */
+main {
+    margin: 3em auto;
+    padding: 1.5em 3em;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 0 8px #dadada;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* 見出し */
+section h2 {
+    position: relative;
+    display: inline-block;
+    margin: 1em auto 0.5em;
+    width: 230px;
+    height: 1.8em;
+    background-color: var(--sub-color);
+    font-family: var(--font);
+    font-size: 1.2em;
+    color: var(--main-color);
+}
+
+section h2::before,
+section h2::after,
+article h1::before,
+article h1::after {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0;
+}
+
+section h2::before,
+article h1::before {
+    left: 0;
+    border-width: 0.9em 0 0.9em 10px;
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+}
+
+section h2::after,
+article h1::after {
+    right: 0;
+    border-width: 0.9em 10px 0.9em 0;
+    border-color: transparent #fff transparent transparent;
+    border-style: solid;
+}
+
+section h3 {
+    font-family: var(--font);
+}
+
+/* 段落 */
+section p,
+article p {
+    margin: 0 auto 1.5em;
+    text-align: justify;
+    word-break: break-all;
+}
+
+/* セクション内共通 */
+section mark {
+    padding: 0.1em 0.3em;
+    background-color: #ffffcc;
+    border-radius: 10px;
+    color: #888;
+}
+
+section strong {
+    font-weight: bold;
+    color: red;
+}
+
+/* リスト */
+section ul {
+    margin-bottom: 1em;
+    list-style-type: none;
+    text-align: justify;
+    word-break: break-all;
+}
+
+section ul.yoko li {
+    display: inline;
+}
+
+section ul span {
+    margin-right: 0.5em;
+    padding: 0.2em 0.5em;
+    background-color: var(--sub-color);
+    border-radius: 50px;
+}
+
+/* アーティクル */
+article {
+    margin: 0 auto;
+    padding: 3em;
+    width: 90%;
+    max-width: 600px;
+    background-color: #fff;
+}
+
+article h1 {
+    position: relative;
+    margin-bottom: 1em;
+    background-color: var(--sub-color);
+    color: var(--main-color);
+}
+
+/* フッター */
+footer {
+    margin: 1em auto 1.5em;
+}
+
+/* メニュー */
+.menu {
+    text-align: center;
+    margin: 1em auto 1.5em;
+}
+
+.menu li {
+    display: inline-block;
+    margin: 0 0.5em;
+}
+
+.menu li a {
+    font-weight: bold;
+}
+
+/* ハート */
+div.heart {
+    position: relative;
+    display: inline-block;
+    margin: 0 0.5em;
+    width: 20px;
+    height: 0.8em;
+}
+
+div.heart::before,
+div.heart::after {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0;
+    width: 6px;
+    height: 11px;
+    background-color: var(--main-color);
+    border-radius: 30px 30px 0 0;
+}
+
+div.heart::before {
+    transform: rotate(-45deg);
+    left: 5px;
+}
+
+div.heart::after {
+    transform: rotate(45deg);
+    right: 5px;
+}
+
+/* ライン */
+div.line {
+    margin: 0.5em auto;
+    width: 150px;
+    height: 5px;
+    border-radius: 10px;
+    background: url('image.jpg');
+}
+
+/* フォーム系 */
+textarea,
+input[type] {
+    -webkit-appearance: none;
+    padding: 0.3em 0.5em;
+    background: var(--main-color);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+}
+
+textarea {
+    width: 200px;
+    height: 70px;
+}
+
+input[type=text] {
+    width: 80px;
+}
+
+input[type=submit] {
+    width: auto;
+}
+
+/* 横幅768px以上で読み込む */
+@media screen and (min-width:768px) {
+
+    /* フォントサイズ */
+    body {
+        font-size: 14px;
+    }
+}
+
+/* 横幅1024px以上で読み込む */
+@media screen and (min-width:1024px) {
+
+    /* フォントサイズ */
+    body {
+        font-size: 15px;
+    }
+}
+
+</style>
+
+
+<div id="curtain"></div>
+<header>
+    <img src="アイコンURL" alt="icon">
+    <h1>XOXO</h1>
+</header>
+＜名前変換用タグ＞
+<main>
+    <section>
+        <h2>ABOUT THIS STORY</h2>
+        <p>テキスト</p>
+    </section>
+    <section>
+        <h2>CAPTER.1</h2>
+        <h3>
+            <div class="heart"></div>LIST<div class="heart"></div>
+        </h3>
+        <ul>
+            <li><span>1</span><a href="#">タイトル</a></li>
+            <li><span>2</span><a href="#">タイトル</a></li>
+            <li><span>3</span><a href="#">タイトル</a></li>
+            <li><span>4</span><a href="#">タイトル</a></li>
+            <li><span>5</span><a href="#">タイトル</a></li>
+        </ul>
+        <ul class="yoko">
+            <li><span>class="yoko"</span></li>
+            <li><a href="#">タイトル</a></li>
+            <li><a href="#">タイトル</a></li>
+            <li><a href="#">タイトル</a></li>
+            <li><a href="#">タイトル</a></li>
+            <li><a href="#">タイトル</a></li>
+        </ul>
+        <div class="line"></div>
+        <mark>mark</mark><br>
+        <strong>strong</strong><br>
+        div class="line"で線<br>
+        <div class="line"></div>
+    </section>
+</main>
+<footer>Template by <a href="https://ninawas.me" target="_blank">NINA</a></footer>
+
+
+
+<article>
+    <h1>タイトル</h1>
+    <p>テキスト</p>
+    <div class="menu">
+        <ul>
+            <li><a href="#">PREV</a></li>
+            <li><a href="#">INDEX</a></li>
+            <li><a href="#">NEXT</a></li>
+        </ul>
     </div>
-</body>
-</html>
+</article>
