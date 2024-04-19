@@ -345,4 +345,110 @@ input[type=submit] {
 </style>
 
 
+<div id="Top"></div>
 
+<header>
+    <h1>control freak</h1>
+    <nav>
+        <ul>
+            <li><a href="#info">info</a></li>
+            <li><a href="#main">main</a></li>
+            <li><a href="#note">note</a></li>
+            <li><a href="#code">code</a></li>
+        </ul>
+    </nav>
+    <aside>xxx.xxx.xxx - 12345<br><a href="#">rank</a> / <a href="#">rank</a></aside>
+</header>
+
+<main>
+    <section id="info">
+        <h2>information</h2>
+        <h3>about</h3>
+        <p>
+            <span>spanで下線</span><br>
+            <mark>markでマーカー</mark><br>
+            <em>emで強調</em><br>
+            <strong>strongで重要事項</strong><br>
+            <span class="en">class="en"で英字</span><br>
+            <span class="borderright">class="borderright"で横線</span><br>
+            <a href="#">通常リンク</a><br>
+            <a href="#" class="link">class="link"リンク</a>
+        </p>
+        <div class="box">div class="box"でボックス</div>
+        <div class="right">class="right"で右揃え</div>
+    </section>
+    <section id="main">
+        <h2>main contents</h2>
+        <h3>sample</h3>
+        <dl>
+            <dt><mark>定義リスト</mark></dt>
+            <dd>ここに説明</dd>
+            <dt><a href="#" class="link">タイトル</a></dt>
+            <dd>ここに説明</dd>
+        </dl>
+        <ul>
+            <li class="en">LIST</li>
+            <li><a href="#">リンク</a></li>
+            <li><a href="#">リンク</a></li>
+        </ul>
+        <ul class="yoko">
+            <li class="borderright">横並び</li>
+            <li><a href="#">リンク</a></li>
+            <li><a href="#">リンク</a></li>
+        </ul>
+        <div class="box">
+            <span class="borderright en">SITE NAME</span> control freak<br>
+            <span class="borderright en">URL</span> xxx.xxx.xxx<br>
+            <span class="borderright en">MASTER</span> namae<br>
+        </div>
+    </section>
+    <section id="note">
+        <h2>notebook</h2>
+        <!-- スクロールさせない場合はarticleを消す -->
+        <article>
+            <h3>sample</h3>
+            <p>
+                <span>スクロールボックス</span>
+            </p>
+            <h3>sample</h3>
+            <p>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, ab sequi a maxime soluta maiores blanditiis qui tempora, id ea minus reiciendis, consequatur aperiam libero ratione ducimus! Repellat, magni, dolorem!</span>
+            </p>
+            <div class="right"><a href="#" class="link">Read more</a></div>
+        </article>
+    </section>
+</main>
+
+<footer>Template by <a href="https://ninawas.me" target="_blank">Nina</a></footer>
+
+<!-- 上に戻るボタン -->
+<div id="PageTop"><a href="#Top">▲</a></div>
+
+<!-- ここから下スムーススクロール -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(function() {
+        $('a[href^="#"]').click(function() {
+            var speed = 800;
+            var href = $(this).attr("href");
+            var target = $(href == "#" || href == "" ? 'html' : href);
+            var position = target.offset().top;
+            $("html, body").animate({
+                scrollTop: position
+            }, speed, "swing");
+            return false;
+        });
+    });
+    $(function() {
+        var topBtn = $('#PageTop');
+        topBtn.hide();
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                topBtn.fadeIn();
+            } else {
+                topBtn.fadeOut();
+            }
+        });
+    });
+
+</script>
