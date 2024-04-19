@@ -5,171 +5,272 @@
 /* https://ninawas.me */
 
 /* ウェブフォントの読み込み */
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP|Overlock+SC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Kaushan+Script|M+PLUS+Rounded+1c&display=swap');
 
 /* 全体に適用する */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-weight: normal;
-    font-family: 'Noto Serif JP', serif;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-/* 共通設定 */
+/* 基本設定 */
 body {
+    background-color: #f7f7f7;
+    text-align: justify;
+    word-break: break-all;
     line-height: 1.7;
     letter-spacing: 0.1em;
-    text-align: center;
     font-size: 13px;
     color: #000;
 }
 
-/* 背景を固定する */
-#bg {
-    position: fixed;
-    display: block;
-    z-index: -100;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: url('画像URL') center/cover;
-}
-
-/* リンク */
+/* リンク基本設定 */
 a {
-    transition: color .5s;
-    color: #000;
+    text-decoration: none;
+    color: #808080;
 }
 
-/* ホバー */
+/* リンクホバー */
 a:hover {
     color: #fff;
 }
 
-/* コンテナ基本設定 */
-header,
-section,
-article {
-    margin: 3em auto;
-    width: 80%;
-    max-width: 400px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-}
-
-/* 見出し */
-header h1 {
-    padding: 2em 0;
-    text-shadow: 1px 1px 0 #fff;
-    font-size: 11px;
-}
-
-/* フォントの指定 */
-header h1,
-section h2,
-li,
-li a {
-    font-family: 'Overlock SC', 'Noto Serif JP', serif;
-}
-
-/* 見出し一行目 */
-header h1 span:nth-of-type(1) {
-    letter-spacing: 0.33em;
-}
-
-/* 見出し二行目 */
-header h1 span:nth-of-type(2) {
-    letter-spacing: 0.25em;
-}
-
-/* 見出し三行目 */
-header h1 span:nth-of-type(3) {
-    letter-spacing: 0.4em;
-}
-
-/* 見出し四行目 */
-header h1 span:nth-of-type(4) {
-    display: inline-block;
-    margin: 0.5em;
-    text-indent: 1em;
-    letter-spacing: 1em;
-    font-size: 21px;
-}
-
-/* メニュー */
-header ul,
-article ul {
-    list-style-type: none;
-    padding: 0.5em 0;
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-header ul li,
-article ul li {
-    display: inline-block;
-    margin: 0 1em;
-}
-
-/* ここまで */
-
-/* セクション */
-section {
-    text-align: justify;
-    word-break: break-all;
-}
-
-/* セクション見出し */
-section h2 {
-    background-color: rgba(255, 255, 255, 0.7);
+/* ヘッダー */
+header {
+    margin: 10vh auto;
+    width: 70%;
+    max-width: 500px;
     text-align: center;
 }
 
-/* リスト系2 */
-section ol {
-    list-style-type: decimal-leading-zero;
-    margin: 0.5em auto;
-    padding: 1em 1.5em;
+/* ボーダー */
+header::before,
+header::after {
+    display: block;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: repeating-linear-gradient(-30deg, #fff 0, #fff 2px, #f3f3f3 5px, #f3f3f3 10px);
 }
 
-section ol li {
-    list-style-position: inside;
+/* 上 */
+header::before {
+    height: 30vh;
+}
+
+/* 下 */
+header::after {
+    height: 10vh;
+}
+
+/* 大見出し */
+header h1 {
+    margin-top: 0.5em;
+    background: url('画像URL') center/contain;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: 'Kaushan Script', 'M PLUS Rounded 1c', sans-serif;
+    font-size: 2.2em;
+    color: transparent;
+}
+
+/* ナビゲーション */
+header nav {
+    margin: 0 auto;
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 0.7em;
+}
+
+/* 補足情報 */
+header aside {
+    margin: 1em auto 1.5em;
+    font-size: 11px;
+}
+
+/* フォント指定 */
+header nav ul li a,
+section h2,
+section h3,
+.en {
+    font-family: 'Josefin Sans', 'M PLUS Rounded 1c', sans-serif;
+}
+
+/* セクション */
+section {
+    margin: 5em auto 3em;
+    padding: 3em;
+    box-shadow: 0 0 10px #f3f3f3;
+    background-color: #fff;
+}
+
+/* セクションリンク */
+section a {
+    font-weight: bold;
+    color: #a4a8d4;
+}
+
+/* セクションリンクホバー */
+section a:hover {
+    background-color: #a4a8d4;
+}
+
+/* セクション内見出し */
+section h2,
+section h3,
+.link {
+    font-weight: normal;
+}
+
+section h2,
+section h3,
+.en {
+    /* 大文字にする */
+    text-transform: uppercase;
+}
+
+section h2 {
+    margin-bottom: 1.5em;
+    font-size: 1.2em;
+    color: #a4a8d4;
+    text-align: center;
+}
+
+section h3 {
+    margin: 1em auto;
+    padding-left: 1em;
+    line-height: 1.5;
+    border-left: 2px solid #a4a8d4;
+    font-size: 1em;
+}
+
+/* セクション内共通 */
+section p {
+    margin: 1em auto 1.5em;
+}
+
+section span:not(.borderright) {
+    border-bottom: thin dashed #a4a8d4;
+}
+
+section mark {
+    margin: 0.2em auto;
+    padding: 0.1em 0.3em;
+    background-color: #f3f3f3;
+}
+
+section em {
+    border-bottom: thin dashed red;
+}
+
+section strong {
+    font-weight: bold;
+    color: red;
+}
+
+section .borderright {
+    margin-right: 0.5em;
+    padding-right: 0.5em;
+    border-right: 5px solid #f3f3f3;
+}
+
+section .box {
+    margin: 1.5em auto;
+    padding: 1em;
+    width: 80%;
+    border: thin solid #a4a8d4;
+}
+
+/* リスト系 */
+section dl,
+section ul {
+    margin: 0.5em auto 1em;
+}
+
+section dd {
+    margin: 0 0 0.5em 2em;
+    font-size: 11px;
 }
 
 section ul {
     list-style-type: none;
-    margin: 0.5em auto;
-    padding: 1em 1.5em;
 }
 
-/* ここまで */
+/* 横並びリスト */
+.yoko li {
+    display: inline-block;
+    margin-right: 0.5em;
+}
 
-/* アーティクル */
+/* アーティクル（スクロールボックス） */
 article {
-    text-align: justify;
-    word-break: break-all;
+    padding-right: 1em;
+    height: 200px;
+    overflow-y: scroll;
 }
 
-article p,
-.line {
-    margin: 1em auto 1.5em;
+/* スクロールバー */
+article::-webkit-scrollbar {
+    width: 5px;
+}
+
+article::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+article::-webkit-scrollbar-thumb {
+    background-color: #a4a8d4;
+    border-radius: 10px;
 }
 
 /* フッター */
 footer {
     margin: 1.5em auto;
-}
-
-/* 中央揃え */
-.center {
     text-align: center;
 }
 
-/* ライン */
-.line {
+footer,
+footer a {
+    font-family: 'Kaushan Script', cursive;
+}
+
+/* 右揃え */
+.right {
+    text-align: right;
+}
+
+/* 枠線リンク */
+.link {
+    display: inline-block;
+    margin: 0.2em auto;
+    padding: 0.1em 0.5em;
+    border: thin solid #a4a8d4;
+}
+
+/* 上に戻るボタン着地点 */
+#Top {
     height: 1px;
-    background-color: #000;
+}
+
+/* 上に戻るボタン */
+#PageTop {
+    position: fixed;
+    bottom: 4%;
+    right: 5%;
+}
+
+/* 上に戻るボタンのフォントサイズ */
+#PageTop a {
+    font-size: 23px;
 }
 
 /* フォーム系 */
@@ -177,100 +278,71 @@ textarea,
 input[type] {
     -webkit-appearance: none;
     padding: 0.2em 0.5em;
-    background-color: #fff;
-    border: thin solid #000;
+    background-color: #f7f7f7;
+    border: none;
     border-radius: 0;
 }
 
+textarea {
+    width: 200px;
+    height: 100px;
+}
+
 input[type=text] {
-    width: 100px;
+    width: 80px;
 }
 
 input[type=submit] {
     width: auto;
 }
 
-textarea {
-    width: 280px;
-    height: 120px;
+/* 横幅768px以上で下記を読み込む */
+@media screen and (min-width:768px) {
+
+    /* フォントサイズ */
+    body {
+        font-size: 14px;
+    }
+
+    /* フレックスボックス */
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        max-width: 700px;
+    }
+
+    /* 大見出しフォントサイズ */
+    header h1 {
+        font-size: 4em;
+    }
+
+    /* フレックスコンテナ横幅 */
+    section {
+        flex-basis: 45%;
+    }
+
+    /* 上に戻るボタンのフォントサイズ */
+    #PageTop a {
+        font-size: 40px;
+    }
 }
 
-textarea::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+/* 横幅1024px以上で下記を読み込む */
+@media screen and (min-width:1024px) {
+
+    /* フォントサイズ */
+    body {
+        font-size: 15px;
+    }
+
+    /* フレックスボックス */
+    main {
+        max-width: 1000px;
+    }
 }
 
-textarea::-webkit-scrollbar-track {
-    border-radius: 50px;
-}
-
-textarea::-webkit-scrollbar-thumb {
-    background-color: #000;
-    border-radius: 50px;
-}
-/* フォームここまで */
 </style>
-
-
-
-
-<!-- 表紙ここから -->
-<div id="bg"></div>
-<header>
-    <h1><span>ウィンウィンなんて言葉は胡散臭いし</span><br><span>そんなことないよってそんなことあるし</span><br><span>私繊細なんですなんて恥ずかしくて</span><br><span>「言えない」</span></h1>
-    <ul>
-        <li><a href="#">Name change</a></li>
-        <li><a href="#">About this story</a></li>
-    </ul>
-</header>
-
-<section>
-    <h2>Chapter.1</h2>
-    <ol start="0">
-        <li>番号付きリストにstart="n"を指定するとその番号から始まります。このリストは0を指定。</li>
-        <li><a href="code.html">本文ページとソースコードはここから</a></li>
-        <li><a href="#">タイトル</a></li>
-        <li><a href="#">タイトル</a></li>
-        <li><a href="#">タイトル</a></li>
-    </ol>
-</section>
-
-<section>
-    <h2>Chapter.2</h2>
-    <ol start="5">
-        <li>このリストは5を指定。</li>
-        <li><a href="#">タイトル</a></li>
-        <li><a href="#">タイトル</a></li>
-        <li><a href="#">タイトル</a></li>
-        <li><a href="#">タイトル</a></li>
-    </ol>
-</section>
-
-<section>
-    <h2>After Story</h2>
-    <ul class="center">
-        <li>番号無しリストもあります。</li>
-        <li>class="center"で中央揃え。</li>
-        <li><a href="#">タイトル</a></li>
-        <li><a href="#">タイトル</a></li>
-    </ul>
-</section>
-
-<footer>Template by <a href="https://ninawas.me" target="_blank">Nina</a></footer>
-<!-- ここまで -->
-
-<!-- 本文ページここから -->
-<article>
-    <h1 class="center">タイトル</h1>
-    <div class="line"></div>
-    <p>本文</p>
-    <ul class="center">
-        <li><a href="#">Prev</a></li>
-        <li><a href="#">Index</a></li>
-        <li><a href="#">Next</a></li>
-    </ul>
-</article>
-<!-- ここまで -->
 
 
 
