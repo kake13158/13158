@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ガチャ</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .gacha-container {
+        margin-top: 50px;
+    }
+    .item {
+        display: none;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
 
+<h1>ガチャ</h1>
+
+<div class="gacha-container">
+    <button onclick="spinGacha()">ガチャを引く</button>
+    <div class="item" id="item1">アイテム1</div>
+    <div class="item" id="item2">アイテム2</div>
+    <div class="item" id="item3">アイテム3</div>
+    <!-- 追加のアイテムがあればここに追加 -->
+</div>
+
+<script>
+function spinGacha() {
+    // アイテムの数
+    var itemCount = 3; // アイテムが3つの場合
+
+    // ランダムな番号を生成
+    var randomIndex = Math.floor(Math.random() * itemCount) + 1;
+
+    // 全てのアイテムを非表示にする
+    var items = document.getElementsByClassName("item");
+    for (var i = 0; i < items.length; i++) {
+        items[i].style.display = "none";
+    }
+
+    // ランダムに選ばれたアイテムを表示する
+    var selectedItem = document.getElementById("item" + randomIndex);
+    selectedItem.style.display = "block";
+}
+</script>
+
+</body>
+</html>
