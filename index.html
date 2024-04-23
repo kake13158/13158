@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ガチャ</title>
+<title>ゆるキャラガチャ</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -25,15 +25,21 @@
 <div class="gacha-container">
     <button onclick="spinGacha()">ガチャを引く</button>
     <div class="item" id="item1">ふっかちゃん</div>
-    <div class="item" id="item2">ぐんまーー</div>
+    <div class="item" id="item2">ぐんまちゃん</div>
     <div class="item" id="item3">ちーばくん</div>
+    <div class="item" id="item1"><さんかくやまベェ/div>
+    <div class="item" id="item2">ハネトン</div>
+    <div class="item" id="item3"><しわまろくん/div>
+    <div class="item" id="item1"><スポまる/div>
+    <div class="item" id="item2">むすび丸</div>
+    <div class="item" id="item3">はながたベニちゃん</div>
     <!-- 追加のアイテムがあればここに追加 -->
 </div>
 
 <script>
 function spinGacha() {
     // アイテムの数
-    var itemCount = 3; // アイテムが3つの場合
+    var itemCount = 9; // アイテムが3つの場合
 
     // ランダムな番号を生成
     var randomIndex = Math.floor(Math.random() * itemCount) + 1;
