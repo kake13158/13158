@@ -20,26 +20,35 @@
 </head>
 <body>
 
-<h1>ガチャ</h1>
+<h1>ゆるキャラガチャ</h1>
 
 <div class="gacha-container">
     <button onclick="spinGacha()">ガチャを引く</button>
     <div class="item" id="item1">ふっかちゃん</div>
     <div class="item" id="item2">ぐんまちゃん</div>
     <div class="item" id="item3">ちーばくん</div>
-    <div class="item" id="item1"><さんかくやまベェ/div>
+    <div class="item" id="item1">さんかくやまベェ</div>
     <div class="item" id="item2">ハネトン</div>
-    <div class="item" id="item3"><しわまろくん/div>
-    <div class="item" id="item1"><スポまる/div>
+    <div class="item" id="item3">しわまろくん</div>
+    <div class="item" id="item1">スポまる</div>
     <div class="item" id="item2">むすび丸</div>
     <div class="item" id="item3">はながたベニちゃん</div>
+    <div class="item" id="item1">ももりん</div>
+    <div class="item" id="item2">笹だるま</div>
+    <div class="item" id="item3">アルクマ</div>
+    <div class="item" id="item1">とりもっちゃん</div>
+    <div class="item" id="item2">横浜みどりアップ葉っぴー</div>
+    <div class="item" id="item3">ミヤリー</div>
+    <div class="item" id="item1">市立探偵ペロリッチ</div>
+    <div class="item" id="item2">かなりん</div>
+    <div class="item" id="item3">朝倉ゆめまる</div>
     <!-- 追加のアイテムがあればここに追加 -->
 </div>
 
 <script>
 function spinGacha() {
     // アイテムの数
-    var itemCount = 9; // アイテムが3つの場合
+    var itemCount = 18; // アイテムが18つの場合
 
     // ランダムな番号を生成
     var randomIndex = Math.floor(Math.random() * itemCount) + 1;
